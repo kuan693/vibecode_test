@@ -41,7 +41,7 @@ export function StockChart({ history }: { history: HistoryItem[] }) {
           <YAxis
             stroke="#8b949e"
             tick={{ fill: "#8b949e", fontSize: 12 }}
-            tickLine={{ stroke: "#30363d" }
+            tickLine={{ stroke: "#30363d" }}
             domain={["auto", "auto"]}
             tickFormatter={(v) => `$${v}`}
           />
