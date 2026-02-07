@@ -36,7 +36,7 @@ export function StockChart({ history }: { history: HistoryItem[] }) {
             dataKey="date"
             stroke="#8b949e"
             tick={{ fill: "#8b949e", fontSize: 12 }}
-            tickLine={{ stroke: "#30363d" }
+            tickLine={{ stroke: "#30363d" }}
           />
           <YAxis
             stroke="#8b949e"
