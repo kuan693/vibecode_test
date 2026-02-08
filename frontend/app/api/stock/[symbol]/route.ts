@@ -8,11 +8,17 @@ export async function GET(
   context: { params: { symbol: string } }
 ) {
   const params = await context.params;
-  const symbol = params.symbol?.trim().toUpperCase();
+  let symbol = params.symbol?.trim().toUpperCase();
 
   if (!symbol) {
     return NextResponse.json({ detail: "請輸入股票代碼" }, { status: 400 });
   }
+
+  // --- 判定輸入是否為純數字，若是則自動補上台股後綴 .TW ---
+  if (/^\d+$/.test(symbol)) {
+    symbol = `${symbol}.TW`;
+  }
+  // ---------------------------------------------------
 
   const headers = {
     'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/121.0.0.0 Safari/537.36',
